@@ -28,6 +28,32 @@ def load_superstore(csv_file):
             data.append(d)
     return data
 
+# Calculation 1: Weighted avg discount
+def avg_discount_by_category(d):
+    #Weighted avg = sum(Discount * Sales) / sum(Sales) * 100 per Category.
+    wsum = {}
+    ssum = {}
+    for r in d:
+        cat = r.get("Category", "") #either None or 0.0
+        sales = r.get("Sales", 0.0)
+        disc = r.get("Discount", 0.0)
+
+        # Skip rows missing category
+        if cat == "":
+            continue
+        # Only count positive-sales rows
+        if sales > 0:
+            wsum[cat] = wsum.get(cat, 0.0) + disc * sales
+            ssum[cat] = ssum.get(cat, 0.0) + sales
+
+    out = {}
+    for cat in wsum:
+        if ssum[cat] > 0:
+            out[cat] = round((wsum[cat] / ssum[cat]) * 100, 2)
+        else:
+            out[cat] = 0.0
+    return out
+
 class project1_test(unittest.TestCase):
     def setUp(self):
         self.data = load_superstore('testfile.csv')
