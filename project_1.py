@@ -1,3 +1,17 @@
+# SI 201 Project 1
+# Your name: Kanij Nessa
+# Your student id: knessa
+# Your email: knessa@umich.edu
+# Dataset: Kaggle “Sample Superstore” (Aman Sharma)
+# Collaborators: Worked Alone
+# GenAI usage statement:
+#   I used ChatGPT (GPT-5 Thinking) to help brainstorm test cases, identify hard-coding,
+#   refine function decomposition, and check rubric compliance. I wrote and reviewed all
+#   final code and tests myself, verified calculations on a small sample CSV, attended office
+#   hours and looked at examples from previous dicussion/hw/slides for further assistance, 
+#   and ensured the program runs correctly end-to-end. 
+#   No generated code was used without human review.
+
 import csv
 import unittest
 
@@ -93,7 +107,7 @@ def write_results_to_csv(avg_disc, sales_by_mode_seg, outfile):
         w.writerow(row)
 
     outFile.close()
-    
+
 class project1_test(unittest.TestCase):
     def setUp(self):
         self.data = load_superstore('testfile.csv')
