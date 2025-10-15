@@ -1,0 +1,14 @@
+Ship Mode,Segment,Country,City,State,Postal Code,Region,Category,Sub-Category,Sales,Quantity,Discount,Profit
+Standard Class,Consumer,United States,Los Angeles,California,90032,West,Office Supplies,Binders,18.504,3,0.2,5.7825
+Standard Class,Consumer,United States,Madison,Wisconsin,53711,Central,Office Supplies,Storage,665.88,6,0,13.3176
+Second Class,Consumer,United States,West Jordan,Utah,84084,West,Office Supplies,Storage,55.5,2,0,9.99
+Second Class,Consumer,United States,San Francisco,California,94109,West,Office Supplies,Art,8.56,2,0,2.4824
+Second Class,Consumer,United States,San Francisco,California,94109,West,Technology,Phones,213.48,3,0.2,16.011
+Second Class,Consumer,United States,San Francisco,California,94109,West,Office Supplies,Binders,22.72,4,0.2,7.384
+Standard Class,Corporate,United States,Fremont,Nebraska,68025,Central,Office Supplies,Art,19.46,7,0,5.0596
+Standard Class,Consumer,United States,Philadelphia,Pennsylvania,19140,East,Furniture,Furnishings,124.2,3,0.2,15.525
+Second Class,Home Office,United States,Houston,Texas,77041,Central,Furniture,Chairs,600.558,3,0.3,-8.5794
+Same Day,Corporate,United States,Manchester,Connecticut,6040,East,Furniture,Bookcases,1043.92,4,0,271.4192
+First Class,Corporate,United States,Columbus,Georgia,31907,South,Office Supplies,Appliances,647.84,8,0,168.4384
+First Class,Corporate,United States,Columbus,Georgia,31907,South,Office Supplies,Labels,20.7,2,0,9.936
+
