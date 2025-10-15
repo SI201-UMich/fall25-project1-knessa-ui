@@ -54,11 +54,30 @@ def avg_discount_by_category(d):
             out[cat] = 0.0
     return out
 
+# Calculation 2: Total Sales by Ship Mode & Segment
+def total_sales_by_shipmode_and_segment(d):
+    #Sum Sales per Ship Mode and Segment.
+    out = {}
+    for r in d:
+        mode = r.get("Ship Mode", "")
+        seg = r.get("Segment", "")
+        sales = r.get("Sales", 0.0)
+        if not (mode and seg):
+            continue
+        out.setdefault(mode, {})
+        out[mode][seg] = out[mode].get(seg, 0.0) + sales
+
+    for m in out:
+        for s in out[m]:
+            out[m][s] = round(out[m][s], 2)
+    #print(out)
+    return out
+
 class project1_test(unittest.TestCase):
     def setUp(self):
         self.data = load_superstore('testfile.csv')
         self.avg_disc = avg_discount_by_category(self.data)
-        self.sales_summary = total_sales_by_shipmode_and_segment(self.data)
+        self.sales_summary = total_sales_by_shipmode_and_segment(self.data)       
 
 # tests for avg_discount_by_category
     def test_avg_discount_returns_dict(self):
