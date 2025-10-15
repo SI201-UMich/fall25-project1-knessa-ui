@@ -48,7 +48,7 @@ def avg_discount_by_category(d):
     wsum = {}
     ssum = {}
     for r in d:
-        cat = r.get("Category", "") #either None or 0.0
+        cat = r.get("Category", "")
         sales = r.get("Sales", 0.0)
         disc = r.get("Discount", 0.0)
 
