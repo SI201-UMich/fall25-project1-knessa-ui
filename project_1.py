@@ -1,6 +1,33 @@
 import csv
 import unittest
 
+# Helper function: convert numeric strings to floats where needed
+def coerce_row_types(row_d):
+    for col in ("Sales", "Discount"):
+        val = row_d[col]
+        if val == "" or val is None:   #checks for blank/missing
+            row_d[col] = 0.0
+        else:
+            row_d[col] = float(val)
+    return row_d
+
+# Load
+def load_superstore(csv_file):
+    data = []
+    with open(csv_file, "r", newline="") as inFile:
+        csv_r = csv.reader(inFile)
+        headers = [h.strip() for h in next(csv_r)]
+        idx = {h: i for i, h in enumerate(headers)}
+
+        for row in csv_r:
+            if len(row) < len(headers):
+                continue
+            # include every column
+            d = {h: row[i].strip() for h, i in idx.items()}
+            d = coerce_row_types(d)
+            data.append(d)
+    return data
+
 class project1_test(unittest.TestCase):
     def setUp(self):
         self.data = load_superstore('testfile.csv')
