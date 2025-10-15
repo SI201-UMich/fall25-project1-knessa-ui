@@ -73,6 +73,27 @@ def total_sales_by_shipmode_and_segment(d):
     #print(out)
     return out
 
+# Output Function
+def write_results_to_csv(avg_disc, sales_by_mode_seg, outfile):
+    outFile = open(outfile, "w", newline="")
+    w = csv.writer(outFile)
+    # section 1
+    w.writerow(["Sales-Weighted Average Discount by Category"])
+    w.writerow(["Category", "Avg Discount (%)"])
+    for cat in sorted(avg_disc):
+        w.writerow([cat, avg_disc[cat]])
+    w.writerow([])
+    # section 2
+    w.writerow(["Total Sales by Ship Mode and Segment"])
+    segments = sorted({seg for mode in sales_by_mode_seg for seg in sales_by_mode_seg[mode]})
+    w.writerow(["Ship Mode"] + segments)
+
+    for mode in sorted(sales_by_mode_seg):
+        row = [mode] + [sales_by_mode_seg[mode].get(seg, 0.0) for seg in segments]
+        w.writerow(row)
+
+    outFile.close()
+    
 class project1_test(unittest.TestCase):
     def setUp(self):
         self.data = load_superstore('testfile.csv')
